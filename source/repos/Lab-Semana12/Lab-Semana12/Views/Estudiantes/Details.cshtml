@@ -1,0 +1,25 @@
+@model Estudiante
+
+@{
+    ViewData["Title"] = "Detalles del estudiante";
+}
+
+<h1>Detalles del estudiante</h1>
+<dl class="row">
+    <dt class="col-sm-3">@Html.DisplayNameFor(model => model.IdEstudiante)</dt>
+    <dd class="col-sm-9">@Html.DisplayFor(model => model.IdEstudiante)</dd>
+    <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Nombres)</dt>
+    <dd class="col-sm-9">@Html.DisplayFor(model => model.Nombres)</dd>
+    <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Apellidos)</dt>
+    <dd class="col-sm-9">@Html.DisplayFor(model => model.Apellidos)</dd>
+    <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Email)</dt>
+    <dd class="col-sm-9">@Html.DisplayFor(model => model.Email)</dd>
+    <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Telefono)</dt>
+    <dd class="col-sm-9">@Html.DisplayFor(model => model.Telefono)</dd>
+    <dt class="col-sm-3">@Html.DisplayNameFor(model => model.FechaRegistro)</dt>
+    <dd class="col-sm-9">@Html.DisplayFor(model => model.FechaRegistro)</dd>
+    <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Activo)</dt>
+    <dd class="col-sm-9">@(Model.Activo ? "Sí" : "No")</dd>
+</dl>
+<a asp-action="Edit" asp-route-id="@Model.IdEstudiante" class="btn btn-primary">Editar</a>
+<a asp-action="Index" class="btn btn-secondary">Volver al listado</a>

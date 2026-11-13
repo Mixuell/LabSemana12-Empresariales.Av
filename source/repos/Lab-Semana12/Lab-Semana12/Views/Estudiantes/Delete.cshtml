@@ -1,0 +1,25 @@
+@model Estudiante
+
+@{
+    ViewData["Title"] = "Eliminar estudiante";
+}
+
+<h1>Eliminar estudiante</h1>
+<div class="alert alert-warning" role="alert">¿Confirmas que deseas eliminar este estudiante?</div>
+<dl class="row">
+    <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Nombres)</dt>
+    <dd class="col-sm-9">@Html.DisplayFor(model => model.Nombres)</dd>
+    <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Apellidos)</dt>
+    <dd class="col-sm-9">@Html.DisplayFor(model => model.Apellidos)</dd>
+    <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Email)</dt>
+    <dd class="col-sm-9">@Html.DisplayFor(model => model.Email)</dd>
+    <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Telefono)</dt>
+    <dd class="col-sm-9">@Html.DisplayFor(model => model.Telefono)</dd>
+    <dt class="col-sm-3">@Html.DisplayNameFor(model => model.FechaRegistro)</dt>
+    <dd class="col-sm-9">@Html.DisplayFor(model => model.FechaRegistro)</dd>
+</dl>
+<form asp-action="Delete" asp-route-id="@Model.IdEstudiante" method="post">
+    <input type="hidden" asp-for="IdEstudiante" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

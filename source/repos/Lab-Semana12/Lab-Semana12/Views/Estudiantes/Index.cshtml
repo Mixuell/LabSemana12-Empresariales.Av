@@ -1,0 +1,42 @@
+@model IEnumerable<Estudiante>
+
+@{
+    ViewData["Title"] = "Estudiantes";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>Estudiantes</h1>
+    <a asp-action="Create" class="btn btn-primary">Nuevo estudiante</a>
+</div>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Nombres)</th>
+            <th>@Html.DisplayNameFor(model => model.Apellidos)</th>
+            <th>@Html.DisplayNameFor(model => model.Email)</th>
+            <th>@Html.DisplayNameFor(model => model.Telefono)</th>
+            <th>@Html.DisplayNameFor(model => model.FechaRegistro)</th>
+            <th>@Html.DisplayNameFor(model => model.Activo)</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var estudiante in Model)
+{
+        <tr>
+            <td>@estudiante.Nombres</td>
+            <td>@estudiante.Apellidos</td>
+            <td>@estudiante.Email</td>
+            <td>@estudiante.Telefono</td>
+            <td>@estudiante.FechaRegistro.ToString("g")</td>
+            <td>@(estudiante.Activo ? "Sí" : "No")</td>
+            <td class="text-nowrap">
+                <a asp-action="Details" asp-route-id="@estudiante.IdEstudiante">Detalles</a> |
+                <a asp-action="Edit" asp-route-id="@estudiante.IdEstudiante">Editar</a> |
+                <a asp-action="Delete" asp-route-id="@estudiante.IdEstudiante">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
